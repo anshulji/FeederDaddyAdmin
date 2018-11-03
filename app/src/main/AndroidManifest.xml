@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.dev.fd.feederdaddyadmin">
+
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <application
+        android:name=".MyFirebaseApp"
+        android:allowBackup="true"
+        android:icon="@drawable/feeder_daddy_logo"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/feeder_daddy_logo"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".SplashActivity"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".SignUpActivity" />
+        <activity android:name=".MasterAdminActivity" />
+        <activity android:name=".CurrentOrdersActivity">
+            <intent-filter>
+                <action android:name="ORDERS"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ViewBillActivity" />
+        <activity android:name=".LoginCredentialsActivity" />
+        <activity android:name=".GuestGenActivity" />
+        <activity android:name=".RestGenActivity" />
+        <activity android:name=".DBGenActivity" />
+
+        <service android:name=".Service.MyFirebaseIdService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".Service.MyFirebaseMessaging">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name=".Service.MyAlarm"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".FDBannerActivity" />
+        <activity android:name=".DeliveryChargesAtivity" />
+        <activity android:name=".CouponGenerationActivity"></activity>
+    </application>
+
+</manifest>
